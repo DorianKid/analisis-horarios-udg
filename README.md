@@ -17,7 +17,7 @@ Proyecto en Python para **extraer, limpiar y analizar** horarios de UdeG (SIIAU)
   - Ventana previa de **4 h**.
   - Candidatos en **horas nones** (09:00, 11:00, 13:00, …) con regla para excluir **07:00** si aplica.
   - Aporte por **semestre sin clase** en el instante candidato.
-- **Visualizaciones Top-5** (barras y tabla) listas para compartir.
+- **Visualizaciones Top 5** (barras y tabla) listas para compartir.
 - **Configuración flexible** en `constantes.py` (semestres por carrera, catálogos).
 
 ---
@@ -29,10 +29,11 @@ analisis-horarios-udg/
 ├─ Extraer_horarios.py                   # Scraping SIIAU → TXT crudo + Excel ordenado
 ├─ Calcular_mejor_horario_por_semestres_y_dia.py
 │                                        # Calcula el mejor horario por día (modelo por semestre)
-├─ Analizar_horarios.py                  # Lee “Mejor_horario.xlsx” y genera visualizaciones Top-5
+├─ Analizar_horarios.py                  # Lee “Mejor_horario.xlsx” y genera visualizaciones Top 5
 ├─ constantes.py                         # Diccionarios de semestres por carrera y catálogos
-├─ data/                                 # (opcional) Archivos de apoyo
-└─ README.md                             # Este documento
+├─ README.md                             # Este documento
+└─ requirements.txt                      # (opcional) Para instalar dependencias
+
 ```
 
 *Si tu estructura difiere, ajusta las rutas en este README.*
@@ -63,9 +64,9 @@ python Extraer_horarios.py
 - Guarda un **TXT** con datos crudos reutilizables y un **Excel** de horarios por día.
 - En corridas posteriores **no necesitas scrappear**: el script puede leer el **TXT**.
 
-### 3) Calcular “Mejor horario por día” (modelo por semestre)
+### 3) Calcular “Mejor horario por día” Analizar_horarios.py (modelo por semestre)
 ```bash
-python Calcular_mejor_horario_por_semestres_y_dia.py
+python Analizar_horarios.py
 ```
 - Pide el **Excel ETL** (con `Clave`, `Hora inicio`, `Hora fin`, `Alumnos`) y la **carrera**.
 - Genera una carpeta `ANALISIS <NOMBRE>` con:
@@ -74,7 +75,7 @@ python Calcular_mejor_horario_por_semestres_y_dia.py
     - **Horarios recomendados**: mejor hora por día y alumnos libres estimados.
     - **Detalle candidatos**: score por cada candidato.
 
-### 4) Visualizaciones Top-5
+### 4) Visualizaciones Top 5
 ```bash
 python Analizar_horarios.py
 ```
